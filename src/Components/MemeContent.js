@@ -1,8 +1,13 @@
 import React from 'react';
 
-function MemeContent(){
+function MemeContent({MemeInfo, Counter}){
+
+
     return(
-        <p>Please Work</p>
+        MemeInfo ? [
+        <img src={MemeInfo.data.url}></img>,
+        <p>{MemeInfo.data.title}
+        </p>] : <p>Loading</p>
     );
 };
 
