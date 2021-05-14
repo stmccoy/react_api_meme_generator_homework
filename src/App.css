@@ -36,3 +36,9 @@
     transform: rotate(360deg);
   }
 }
+
+body{
+  background-image: url("./images/my_meme_creator_background_image.jpeg")  
+}
+
+/* background-image: url("paper.gif") */

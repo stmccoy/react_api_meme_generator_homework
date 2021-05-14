@@ -1,29 +1,36 @@
 import React, {useState, useEffect} from 'react';
 import MemeContent from '../Components/MemeContent'
+import MemeChangerButton from '../Components/MemeChangerButton'
+import './MemeContainer.css';
+
 
 
 function MemeContainer(){
 
-    // const list = []
     const [MemeData, setMemeData] = useState(null)
-    const [counter, setCounter] = useState(3);
+    const [counter, setCounter] = useState(1);
 
     useEffect(() =>{
         GetMemeData();
-    }, []);
+    });
 
     const GetMemeData = function (){
-        fetch('https://old.reddit.com/r/programmerhumor.json')
+        fetch('https://old.reddit.com/r/programmerhumor.json?limit=100')
         .then(rs => rs.json())
-        .then(rs => setMemeData(rs.data.children[counter]))
+        .then(rs => setMemeData(rs.data.children))
     };
 
-    // rs.data.children[1].data.url
 
-    // InitialMemeDataList ={list}
+    const HandleButtonClick = function (){
+        const RandomNumber = Math.floor((Math.random() * 100) + 1);
+        setCounter(RandomNumber)
+    };
 
     return(
+        <div className='main-body'>
         <MemeContent MemeInfo={MemeData} IndexNumber={counter}/>
+        <MemeChangerButton onButtonClick={HandleButtonClick}/>
+        </div>
     );
 
 };
