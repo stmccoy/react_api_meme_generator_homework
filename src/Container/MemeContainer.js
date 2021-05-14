@@ -3,7 +3,7 @@ import MemeContent from '../Components/MemeContent'
 import MemeChangerButton from '../Components/MemeChangerButton'
 import './MemeContainer.css';
 
-
+// no image change doesn't work
 
 function MemeContainer(){
 
@@ -28,7 +28,7 @@ function MemeContainer(){
 
     return(
         <div className='main-body'>
-        <MemeContent MemeInfo={MemeData} IndexNumber={counter}/>
+        <MemeContent MemeInfo={MemeData} IndexNumber={counter} NoImageChange ={HandleButtonClick}/>
         <MemeChangerButton onButtonClick={HandleButtonClick}/>
         </div>
     );
