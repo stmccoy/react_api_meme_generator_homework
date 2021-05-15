@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import MemeContent from '../Components/MemeContent'
 import MemeChangerButton from '../Components/MemeChangerButton'
+import MemeTitle from '../Components/MemeTitle'
 import './MemeContainer.css';
 
 function MemeContainer(){
@@ -19,14 +20,14 @@ function MemeContainer(){
     };
 
     const HandleButtonClick = function (){
-        // const RandomNumber = Math.floor((Math.random() * 100) + 1);
         counter === 100 ? setCounter(1) : setCounter(counter + 1)
     };
 
     return(
-        <div className='main-body'>
-        <MemeContent MemeInfo={MemeData} IndexNumber={counter} NoImageChange ={HandleButtonClick}/>
-        <MemeChangerButton onButtonClick={HandleButtonClick}/>
+        <div className='main-body'>        
+            <MemeContent MemeInfo={MemeData} IndexNumber={counter} NoImageChange ={HandleButtonClick}/>
+            <MemeTitle MemeInfo={MemeData} IndexNumber={counter}/>
+            <MemeChangerButton onButtonClick={HandleButtonClick}/>
         </div>
     );
 

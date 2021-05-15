@@ -7,8 +7,9 @@ function MemeContent({MemeInfo, IndexNumber, NoImageChange}){
 
     return(
         MemeInfo ? 
-        [<img src={MemeInfo[IndexNumber].data.url} onError={NoImageChange} ></img>,
-        <p>{MemeInfo[IndexNumber].data.title}</p>]
+        <div>
+            <img src={MemeInfo[IndexNumber].data.url} onError={NoImageChange} ></img>
+        </div>
         : 
         <div>
             <img id= 'loading-image' src={LoadingImage}></img>
