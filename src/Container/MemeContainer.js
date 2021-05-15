@@ -3,8 +3,6 @@ import MemeContent from '../Components/MemeContent'
 import MemeChangerButton from '../Components/MemeChangerButton'
 import './MemeContainer.css';
 
-// no image change doesn't work
-
 function MemeContainer(){
 
     const [MemeData, setMemeData] = useState(null)
@@ -14,24 +12,15 @@ function MemeContainer(){
         GetMemeData();
     }, [counter]);
 
-    useEffect(()=>{
-        if (MemeData){
-            if(MemeData[counter].data.url.split('/').includes('comments') || MemeData[counter].data.url.split('.').includes('gifv')){
-                HandleButtonClick()
-            }
-        };
-    }, [MemeData]);
-
     const GetMemeData = function (){
         fetch('https://old.reddit.com/r/programmerhumor.json?limit=100')
         .then(rs => rs.json())
         .then(rs => setMemeData(rs.data.children))
     };
 
-
     const HandleButtonClick = function (){
         // const RandomNumber = Math.floor((Math.random() * 100) + 1);
-        setCounter(counter + 1)
+        counter === 100 ? setCounter(1) : setCounter(counter + 1)
     };
 
     return(

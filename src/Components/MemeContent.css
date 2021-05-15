@@ -1,9 +1,17 @@
 img{
-    width:600px;
-    max-height: px;
+    max-width:1000px;
+    max-height: 700px;
 }
 
 p{
     font-size: 50px;
     color:white;
+    margin: 2%;
+}
+
+#loading-image{
+    width: 100px;
+    margin: auto;
+    margin-top: 20%;
+    margin-bottom: 5%;
 }
