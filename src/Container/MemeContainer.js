@@ -12,7 +12,15 @@ function MemeContainer(){
 
     useEffect(() =>{
         GetMemeData();
-    });
+    }, [counter]);
+
+    useEffect(()=>{
+        if (MemeData){
+            if(MemeData[counter].data.url.split('/').includes('comments') || MemeData[counter].data.url.split('.').includes('gifv')){
+                HandleButtonClick()
+            }
+        };
+    }, [MemeData]);
 
     const GetMemeData = function (){
         fetch('https://old.reddit.com/r/programmerhumor.json?limit=100')
@@ -22,8 +30,8 @@ function MemeContainer(){
 
 
     const HandleButtonClick = function (){
-        const RandomNumber = Math.floor((Math.random() * 100) + 1);
-        setCounter(RandomNumber)
+        // const RandomNumber = Math.floor((Math.random() * 100) + 1);
+        setCounter(counter + 1)
     };
 
     return(
